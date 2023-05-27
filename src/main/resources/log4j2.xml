@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration monitorinterval="60">
+    <properties>
+        <property name="log-path">./target/logs</property>
+        <property name="archive">${log-path}/archive</property>
+    </properties>
+    <appenders>
+        <console name="Console-Appender" target="SYSTEM_OUT">
+            <patternlayout>
+                <pattern>
+                    [%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} %X [%t] %c{1} - %msg%n
+                </pattern>>
+            </patternlayout>
+        </console>
+        <!-- <file name="File-Appender" filename="${log-path}/xmlfilelog.log">
+            <patternlayout>
+                <pattern>
+                    [%-5level] %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] %c{1} - %msg%n
+                </pattern>
+            </patternlayout>
+        </file> -->
+        <rollingfile name="RollingFile-Appender" filename="${log-path}/contacts.log" filepattern="${archive}/contacts.log.%d{yyyy-MM-dd-hh-mm}.gz">
+            <patternlayout pattern="%d{yyyy-MM-dd HH:mm:ss.SSS} [%-5level] %X [ %c - %M (%L)] [%t] - %msg%n"></patternlayout>
+            <policies>
+                 <sizebasedtriggeringpolicy size="3 MB"></sizebasedtriggeringpolicy>
+            </policies>
+            <defaultrolloverstrategy max="20"></defaultrolloverstrategy>
+        </rollingfile>
+    </appenders>
+    <loggers>
+           <logger name="org.bharat.contacts.controller" level="debug" additivity="false">
+               <!-- <appenderref ref="File-Appender" level="error"></appenderref> -->
+               <appenderref ref="RollingFile-Appender" level="debug"></appenderref>
+               <appenderref ref="Console-Appender" level="info"></appenderref>
+           </logger>
+           <logger name="org.springframework" level="info" additivity="false">
+               <appenderref ref="RollingFile-Appender" level="info"></appenderref>
+               <appenderref ref="Console-Appender" level="info"></appenderref>
+           </logger>
+           <logger name="org.springframework.security" level="info" additivity="false">
+               <appenderref ref="RollingFile-Appender" level="info"></appenderref>
+           </logger>
+           <logger name="org.apache" level="warn" additivity="false">
+               <appenderref ref="RollingFile-Appender" level="warn"></appenderref>
+           </logger>
+            <logger name="org.hibernate" level="debug" additivity="false">
+                <appenderref ref="RollingFile-Appender" level="debug"></appenderref>
+            </logger>
+            <logger name="org.hibernate.SQL" level="debug" additivity="false">
+                <appenderref ref="RollingFile-Appender" level="debug"></appenderref>
+            </logger>
+            <logger name="org.hibernate.type" level="debug" additivity="false">
+                <appenderref ref="RollingFile-Appender" level="debug"></appenderref>
+            </logger>
+            <logger name="org.springframework.jdbc.datasource.init" level="info" additivity="false">
+                <appenderref ref="RollingFile-Appender" level="info"></appenderref>
+            </logger>
+        <root level="debug">
+            <appenderref ref="RollingFile-Appender"></appenderref>
+            <appenderref ref="Console-Appender"></appenderref>
+        </root>
+    </loggers>
+</configuration>

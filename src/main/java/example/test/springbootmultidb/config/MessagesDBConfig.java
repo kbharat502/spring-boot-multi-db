@@ -27,7 +27,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import javax.sql.DataSource;
 import java.util.Properties;
 
-@Profile({"val-db", "valmsgh2"})
+@Profile({"val-db", "valmsgpg", "valmsgh2"})
 @Configuration
 @EnableTransactionManagement
 @EnableJpaRepositories(

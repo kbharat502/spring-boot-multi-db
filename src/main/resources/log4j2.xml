@@ -28,7 +28,7 @@
         </rollingfile>
     </appenders>
     <loggers>
-           <logger name="org.bharat.contacts.controller" level="debug" additivity="false">
+           <logger name="example.test.springbootmultidb" level="debug" additivity="false">
                <!-- <appenderref ref="File-Appender" level="error"></appenderref> -->
                <appenderref ref="RollingFile-Appender" level="debug"></appenderref>
                <appenderref ref="Console-Appender" level="info"></appenderref>

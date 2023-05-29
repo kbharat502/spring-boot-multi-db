@@ -6,7 +6,9 @@ Spring boot 3 application with multiple databases.
 
 **Run:**  `mvnw spring-boot:run -Dspring-boot.run.arguments="--spring.profiles.active=contacth2,val-prop"`
 
-## Valid Profile Combinations
+## Valid Spring Profile Combinations
+
+Replace the below combinations in the above command.
 
 | Combination | Profiles to use |
 | -------------- | ---------- |

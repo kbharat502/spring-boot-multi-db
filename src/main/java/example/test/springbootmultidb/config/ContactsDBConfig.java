@@ -32,7 +32,7 @@ import java.util.Properties;
         transactionManagerRef = "contactsTransactionManager",
         basePackages = {"example.test.springbootmultidb.contacts.db.repo"}
 )
-@Profile("contacth2")
+@Profile({"contacth2", "contactpg"})
 public class ContactsDBConfig {
 
     @Autowired

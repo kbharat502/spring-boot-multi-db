@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.JsonDeserializer;
 import com.fasterxml.jackson.databind.JsonSerializer;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
+import example.test.springbootmultidb.config.messagesource.ValidationMessageSource;
 import example.test.springbootmultidb.contacts.jackson.deserializer.AddressDTOTypeDeserializer;
 import example.test.springbootmultidb.contacts.jackson.deserializer.PhoneDTOTypeDeserializer;
 import example.test.springbootmultidb.contacts.jackson.serializer.AddressDTOTypeSerializer;
@@ -12,6 +13,7 @@ import example.test.springbootmultidb.contacts.jackson.serializer.PhoneDTOTypeSe
 import example.test.springbootmultidb.contacts.model.enums.AddressDTOType;
 import example.test.springbootmultidb.contacts.model.enums.PhoneDTOType;
 import org.hibernate.validator.HibernateValidator;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -35,26 +37,17 @@ import java.util.Map;
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
 
-    private static final String DEFAULT_ENCODING = "UTF-8";
-
+    @Autowired
+    private ValidationMessageSource validationMessageSource;
 
     @Bean
     public Validator getValidator() {
         LocalValidatorFactoryBean lvfb = new LocalValidatorFactoryBean();
         lvfb.setProviderClass(HibernateValidator.class);
-        lvfb.setValidationMessageSource(messageSource());
+        lvfb.setValidationMessageSource(validationMessageSource.messageSource());
 
         Validator validator = (Validator) lvfb;
         return validator;
-    }
-
-    public MessageSource messageSource() {
-        ReloadableResourceBundleMessageSource rrbms = new ReloadableResourceBundleMessageSource();
-        rrbms.setBasenames("classpath:org/hibernate/validator/ValidationMessages","classpath:ValidationMessage");
-        rrbms.setDefaultEncoding(DEFAULT_ENCODING);
-        rrbms.setCacheSeconds(60);
-
-        return rrbms;
     }
 
     @Override

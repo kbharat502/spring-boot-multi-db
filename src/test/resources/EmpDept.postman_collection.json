@@ -47,52 +47,6 @@
 			"response": []
 		},
 		{
-			"name": "File upload model",
-			"request": {
-				"method": "POST",
-				"header": [],
-				"body": {
-					"mode": "formdata",
-					"formdata": [
-						{
-							"key": "id",
-							"value": "1",
-							"type": "text"
-						},
-						{
-							"key": "files",
-							"type": "file",
-							"src": "/C:/Users/Bharat/Desktop/Amazon-return.pdf"
-						},
-						{
-							"key": "description",
-							"value": "test description",
-							"type": "text"
-						}
-					],
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:8080/EmpDept/api/uploadModel",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8080",
-					"path": [
-						"EmpDept",
-						"api",
-						"uploadModel"
-					]
-				}
-			},
-			"response": []
-		},
-		{
 			"name": "Delete project by id",
 			"request": {
 				"method": "DELETE",

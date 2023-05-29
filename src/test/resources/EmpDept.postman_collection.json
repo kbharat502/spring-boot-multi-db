@@ -1,0 +1,484 @@
+{
+	"info": {
+		"_postman_id": "d55d18f9-4b61-4b4b-87d3-e633f1d183b1",
+		"name": "EmpDept",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Add new employees",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstName\": \"Rambo\",\r\n    \"lastName\": \"Haines\",\r\n    \"dateOfBirth\": \"2010-07-15\",\r\n    \"joinDate\": \"2018-10-11\",\r\n    \"contact\": {\r\n        \"addresses\": [\r\n            {\r\n                \"street1\": \"359 south St.\",\r\n                \"city\": \"Jessup\",\r\n                \"state\": \"MD\",\r\n                \"zipcode\": \"21078\",\r\n                \"type\": \"Home\"\r\n            }\r\n        ],\r\n        \"email\": \"rambo.symond@fauxComp.com\",\r\n        \"phones\": [\r\n            {\r\n                \"type\": \"Work\",\r\n                \"number\": \"7890123456\"\r\n            }\r\n        ]\r\n    },\r\n    \"department\": {\r\n        \"name\": \"IT Support\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/EmpDept/api/employees",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"EmpDept",
+						"api",
+						"employees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "File upload model",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "files",
+							"type": "file",
+							"src": "/C:/Users/Bharat/Desktop/Amazon-return.pdf"
+						},
+						{
+							"key": "description",
+							"value": "test description",
+							"type": "text"
+						}
+					],
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/EmpDept/api/uploadModel",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"EmpDept",
+						"api",
+						"uploadModel"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete project by id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/EmpDept/api/projects/2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"EmpDept",
+						"api",
+						"projects",
+						"2"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add employees to project",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/EmpDept/api/projects/3/addEmployees/1,6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"EmpDept",
+						"api",
+						"projects",
+						"3",
+						"addEmployees",
+						"1,6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create new project",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"First Project\",\r\n    \"expectedStartDate\": \"2020-09-01\",\r\n    \"expectedFinishDate\": \"2021-03-25\",\r\n    \"createdBy\": \"ADSF\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/EmpDept/api/projects",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"EmpDept",
+						"api",
+						"projects"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get employee by phone number",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/EmpDept/api/employees/phone/1234567890",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"EmpDept",
+						"api",
+						"employees",
+						"phone",
+						"1234567890"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "XML - Get employee by phone number",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/xml",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/xml",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/EmpDept/api/employees/phone/1234567890",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"EmpDept",
+						"api",
+						"employees",
+						"phone",
+						"1234567890"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add new employee",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "accept-language",
+						"value": "en-US",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"firstName\": \"Rambo\",\r\n    \"lastName\": \"Haines\",\r\n    \"dateOfBirth\": \"2010-07-15\",\r\n    \"joinDate\": \"2018-10-11\",\r\n    \"contact\": {\r\n        \"addresses\": [\r\n            {\r\n                \"street1\": \"359 south St.\",\r\n                \"state\": \"MD\",\r\n                \"zipcode\": \"2107\",\r\n                \"type\": \"Home\"\r\n            }\r\n        ],\r\n        \"email\": \"rambo.symond@fauxComp.com\",\r\n        \"phones\": [\r\n            {\r\n                \"type\": \"Work\",\r\n                \"number\": \"7890123456\"\r\n            }\r\n        ]\r\n    },\r\n    \"department\": {\r\n        \"name\": \"IT Support\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/EmpDept/api/employees",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"EmpDept",
+						"api",
+						"employees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add new employee - exception",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"auth": {
+					"type": "basic",
+					"basic": [
+						{
+							"key": "password",
+							"value": "user1Pass",
+							"type": "string"
+						},
+						{
+							"key": "username",
+							"value": "user1",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"id\": 10,\r\n    \"firstName\": \"Rambo\",\r\n    \"lastName\": \"Haines\",\r\n    \"dateOfBirth\": \"2010-07-15\",\r\n    \"joinDate\": \"2018-10-11\",\r\n    \"contact\": {\r\n        \"addresses\": [\r\n            {\r\n                \"street1\": \"359 south St.\",\r\n                \"city\": \"Jessup\",\r\n                \"state\": \"MD\",\r\n                \"zipcode\": \"21078\",\r\n                \"type\": \"Home\"\r\n            }\r\n        ],\r\n        \"email\": \"rambo.symond@fauxComp.com\",\r\n        \"phones\": [\r\n            {\r\n                \"type\": \"Work\",\r\n                \"number\": \"7890123456\"\r\n            }\r\n        ]\r\n    },\r\n    \"department\": {\r\n        \"name\": \"IT Support\"\r\n    }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/EmpDept/api/employees",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"EmpDept",
+						"api",
+						"employees"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all employees in a department by id",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/EmpDept/api/employees/departmentName/IT Support",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"EmpDept",
+						"api",
+						"employees",
+						"departmentName",
+						"IT Support"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get employee by id",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "X-Correlation-ID",
+						"value": "afc8a1e2-e727-4777-b4b3-4ce600c8ca73",
+						"type": "text"
+					},
+					{
+						"key": "X-Client-ID",
+						"value": "Postman-Client",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/EmpDept/api/employees/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"EmpDept",
+						"api",
+						"employees",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get project by id",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/EmpDept/api/projects/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"EmpDept",
+						"api",
+						"projects",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

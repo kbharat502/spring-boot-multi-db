@@ -28,3 +28,7 @@ Use the scripts located in `src/main/resources/sql` to build the database(s).
 | Contacts Data | `emp-dept` | `data-contacts.sql` |
 | Validations Schema | `val_msg` | `schema-messages.sql` |
 | Validations Data | `val_msg` | `data-messages.sql` |
+
+# Postman collection to test application
+
+Find the collection to import in postman at `src/test/resources/EmpDept.postman_collection.json`

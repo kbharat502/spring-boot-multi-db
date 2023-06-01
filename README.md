@@ -24,10 +24,10 @@ Use the scripts located in `src/main/resources/sql` to build the database(s).
 
 | **For** | **Schema Name** | **Script Name** |
 | ------- | --------------- | --------------- |
-| Contacts Schema | `emp_dept` | `schema-contacts.sql` |
-| Contacts Data | `emp_dept` | `data-contacts.sql` |
-| Validations Schema | `val_msg` | `schema-messages.sql` |
-| Validations Data | `val_msg` | `data-messages.sql` |
+| Contacts Schema | `emp_dept` | `src/main/resources/sql/schema-contacts.sql` |
+| Contacts Data | `emp_dept` | `src/main/resources/sql/data-contacts.sql` |
+| Validations Schema | `val_msg` | `src/main/resources/sql/schema-messages.sql` |
+| Validations Data | `val_msg` | `src/main/resources/sql/data-messages.sql` |
 
 # Postman collection to test application
 
